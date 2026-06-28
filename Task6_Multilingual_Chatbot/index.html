@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Multilingual Chatbot</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="chat-panel" aria-label="Multilingual chatbot">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Internship Prototype</p>
+            <h1>Multilingual Chatbot</h1>
+          </div>
+          <div class="status" title="Supported languages">
+            EN · HI · ES · FR
+          </div>
+        </header>
+
+        <div class="meta-grid" aria-label="Conversation analysis">
+          <div>
+            <span>Language</span>
+            <strong id="language">English</strong>
+          </div>
+          <div>
+            <span>Intent</span>
+            <strong id="intent">greeting</strong>
+          </div>
+          <div>
+            <span>Turns</span>
+            <strong id="turns">0</strong>
+          </div>
+          <div>
+            <span>Engine</span>
+            <strong id="engine">offline</strong>
+          </div>
+        </div>
+
+        <div id="messages" class="messages" aria-live="polite"></div>
+
+        <form id="chatForm" class="composer">
+          <input
+            id="messageInput"
+            type="text"
+            autocomplete="off"
+            placeholder="Try: Mujhe Delhi jana hai tomorrow evening"
+            aria-label="Message"
+          />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+
+      <aside class="demo-panel" aria-label="Demo prompts">
+        <section class="api-settings" aria-label="OpenRouter settings">
+          <h2>OpenRouter API</h2>
+          <p id="apiStatus" class="api-status">Checking API status...</p>
+          <form id="apiForm" class="api-form">
+            <input
+              id="apiKeyInput"
+              type="password"
+              autocomplete="off"
+              placeholder="sk-or-v1-..."
+              aria-label="OpenRouter API key"
+            />
+            <input
+              id="modelInput"
+              type="text"
+              value="openrouter/auto"
+              aria-label="OpenRouter model"
+            />
+            <button type="submit">Save API Key</button>
+          </form>
+        </section>
+
+        <h2>Demo Flow</h2>
+        <button data-prompt="Hello, I want to book a train ticket">English start</button>
+        <button data-prompt="मुझे दिल्ली जाना है">Hindi switch</button>
+        <button data-prompt="tomorrow evening">English follow-up</button>
+        <button data-prompt="¿Cuál es el clima en Madrid mañana?">Spanish weather</button>
+        <button data-prompt="Bonjour, je veux annuler ma réservation">French cancel</button>
+      </aside>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
